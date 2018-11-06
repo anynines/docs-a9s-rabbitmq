@@ -307,6 +307,18 @@ $ cf create-service a9s-rabbitmq36 rabbitmq-single-small my-rabbitmq-service -c 
 $ cf update-service my-rabbitmq-service -c '{ "plugins": ["rabbitmq_shovel", "rabbitmq_shovel_management"] }'
 ```
 
+### <a id='plugins-for-protocols'></a> Plugins for protocols
+
+Some plugins that can be enabled with a9s RabbitMQ provide additional protocols
+for use with RabbitMQ. The usernames and passwords for these protocols are the
+same as with the default ACMQ protocol. Protocols enabled via plugin will be set
+to the default `\` RabbitMQ vhost. 
+
+| Protocal | TCP Port | SSL Port | Further information |
+|----------|----------|----------|---------------------|
+| MQTT | 1883 | 8883 | [RabbitMQ MQTT Docs](https://www.rabbitmq.com/mqtt.html) |
+| STOMP | 61613 | 61614 | [RabbitMQ STOMP Docs](https://www.rabbitmq.com/stomp.html) |
+
 ## <a id='create-rabbitmq-users'></a> Create RabbitMQ Users
 
 a9s RabbitMQ allows to create new users with different roles (permissions) by creating
